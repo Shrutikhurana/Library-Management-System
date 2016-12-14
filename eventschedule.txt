@@ -1,0 +1,6 @@
+CREATE EVENT my_event
+  ON SCHEULE
+    EVERY 1 DAY
+    STARTS '2014-11-5 00:00:00' ON COMPLETION PRESERVE ENABLE 
+  DO
+    update borrowedby set fine=fine+10 where datediff(curdate(),returndate)>0;
